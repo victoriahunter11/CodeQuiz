@@ -1,0 +1,40 @@
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 
+    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    padding: 0;
+    margin: 0;
+    background-color: darkgray;
+
+}
+
+.container {
+    background-color: white;
+    margin: 0 auto;
+    width:700px;
+    max-width:80%;
+    padding:10px;
+    border-radius:5px;
+}
+
+.btn-grid {
+    display:grid;
+    gap :10px;
+    
+}
+
+.btn {
+    width:90px;
+}
+
+.btn:hover {
+    color:darkgray;
+}
+
+.controls {
+    color:#2a0631;
+    display: flex;
+}
+.hide{
+    display: none;
+}
+.start-bt

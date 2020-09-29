@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Coding Quiz</title>
+
+  </head>
+  <body>
+      
+  <link rel="stylesheet" href="styles.css">
+    <html>
+    <header> 
+    <h1>Coding Quiz</h1>
+    </header>
+    <div class="container"> 
+        <div id="timer">
+            <div id="counter"> 6</div>
+        <div id="question-container" class="hide">
+            <div id="question"> Question </div>
+            <div id="answer-buttons" class="btn-grid">
+                <button class="btn" id="a" >A</button>
+                <button class="btn" id="b"onclick="checkAnswer('b')">B</button> 
+                <button class="btn" id="c" onclick="checkAnswer('c')">C</button>
+                <button class="btn" id="d" onclick="checkAnswer('d')">C</button> 
+                <br>
+                <br>
+                </div>
+            </div>
+            <span id="answer1">
+        </div>
+        <div class="controls">
+            <button id="start-btn" class="start-btn">Start Quiz</button>
+            <button id="nextBtn" class="next-btn btn hide">Next</button>
+
+        </div>
+
+        <footer>
+            <p id="progress"> Question</p>
+        </footer>
+    </div>
+    <br>
+    <br>
+    <br> 
+
+
+
+    </html>
+    <script type="text/javascript">
+//elements
+    var startButton = document.getElementById('start-btn');
+    var questionContainerElement = document.getElementById('question-container');
+    var questionElement = document.getElementById('question');
+    var answerButtonsElement = document.getElementById('answer-buttons');
+       
+    var counter = document.getElementById("counter");
+    var timeCounter = document.getElementById("timeCounter");
+        var progress = document.getElementById("progress")
+    var a = document.getElementById("A");
+    var b = document.getElementById("B");
+    var c = document.getElementById("C");
+
+//event listener to begin
+   startButton.addEventListener('click', startQuiz)
+    //function to start quiz
+       function startQuiz() {
+            console.log('Started')
+            startButton.classList.add('hide')
+            currentQuestionIndex = 0
+            questionContainerElement.classList.remove('hide')
+            setNextQuestion()
+        }
+
+        function setNextQuestion() {
+            showQuestion(currentQuestionIndex)
+           
+
+        }
+        function showQuestion(question) {
+            questionElement.innerText = question.question;
+        }
+
+        function selectAnswer() {
+
+
+        }
+        var start = document.getElementById("start-btn");
+        startButton.addEventListener("click", startQuiz);
+         function startQuiz(){
+             start.style.display = "none";
+             renderQuestion();
+             TIMER = setInterval(counterRender,1000);
+             renderProgress();
+             renderCounter();
+             quiz.style.display = "block";
+         }
+
+         
+        // All the questions
+        let questions = [
+            {
+                question: "What does CSS stand for?",
+                
+                 a : "A1",
+                 b : "B2",
+                 c: "c3", 
+                
+                correct:"B"
+            
+            }
+            
+        ]
+        let lastQuestionIndex = questions.length - 1;
+        let runningQuestionIndex = 0;
+
+    </script>
+
+  </body>
+</html>
