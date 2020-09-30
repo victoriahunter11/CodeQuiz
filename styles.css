@@ -3,7 +3,7 @@ body {
     'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     padding: 0;
     margin: 0;
-    background-color: darkgray;
+    background-color: #e5e7dc;
 
 }
 
@@ -37,4 +37,3 @@ body {
 .hide{
     display: none;
 }
-.start-bt

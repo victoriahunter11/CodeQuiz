@@ -7,32 +7,31 @@
   </head>
   <body>
       
-  <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="styles.css">
     <html>
     <header> 
     <h1>Coding Quiz</h1>
     <h4><a href = "scores.html">High Scores</a></h4>
     </header>
-    <div class="container"> 
-        <div id="timer">
-            <div id="counter"> 6</div>
-        <div id="question-container" class="hide">
-            <div id="question"> Question </div>
-            <div id="answer-buttons" class="btn-grid">
-                <button class="btn" >A</button>
-                <button class="btn">B</button> 
-                <button class="btn" id="c" onclick="checkAnswer('c')">C</button>
-                <button class="btn" id="d" onclick="checkAnswer('d')">C</button> 
+    <body>
+        <div class="container">
+          <div id="questionContainer" class="hide">
+            <div id="question">W ?</div>
+            <div id="answerBtns" class="btn-grid">
+                <button class="option" data-number="1"> </button>
+                <button class="option" data-number="2"></button> 
+                <button class="option" data-number="3" > </button>
+                <button class="option" data-number="4"> </button> 
                 <br>
                 <br>
                 </div>
-            </div>
-            <span id="answer1">
+          </div>
+          <div class="controls">
+            <button id="startBtn" class="startBtn">Start Quiz</button>
+          </div>
         </div>
-        <div class="controls">
-            <button id="start-btn" class="start-btn">Start Quiz</button>
-
-        </div>
+      </body>
+      </html>
 
         <footer>
             <p id="progress"> Question</p>
@@ -41,53 +40,97 @@
     <br>
     <br>
     <br> 
-
-
-
+    
     </html>
+
+
     <script type="text/javascript">
     //elements
     var startButton = document.getElementById('startBtn');
-    var questionContainerElement = document.getElementById('question-container');
-    var questionElement = document.getElementById('question');
-    var answerButtonsElement = document.getElementById('answer-buttons');
-       
-//event listener to begin
-   startButton.addEventListener('click', startQuiz)
+    var questionContainerElement = document.getElementById('questionContainer')
+    var option = Array.from(document.getElementsByClassName('option'));
+    console.log(option)
+
+    let currentQuestion = {};
+    let correctAnswers = true;
+    let score = 0;
+    let questionCounter = 0;
+    let availableQuestions = [];
+
+    //event listener to begin
+    startButton.addEventListener('click', startQuiz)
+
     //function to start quiz
        function startQuiz() {
             console.log('Started')
             startButton.classList.add('hide')
-            currentQuestionIndex = 0
-            questionContainerElement.classList.remove('hide')
-            setNextQuestion()
-        }
+            questionContainerElement.classList.remove('hide');
 
-        function setNextQuestion() {
-            showQuestion(currentQuestionIndex)
-           
+            questionCounter = 0;
+            score = 0;
+            availableQuestions = [...questions];
+            console.log(availableQuestions)
+           getNewQuestion();
 
-        }
-        function showQuestion(question) {
-            questionElement.innerText = question.question;
-        }
+        };
+        //Selecting a random question, and pulling one into the page
+        function getNewQuestion() {
+            
+            //if they reach the end of the available questions
+            if (availableQuestions.length === 0 || questionCounter > availableQuestions) {
+                return window.location.assign("scores.html");
+            }
+        
+            questionCounter++;
+            var questionIndex = Math.floor(Math.random() * availableQuestions.length);
+            currentQuestion = availableQuestions[questionIndex];
+            question.innerText = currentQuestion.question;
 
-        function selectAnswer() {
+            option.forEach(option => {
+                var number = option.dataset['number'];
+                option.innerText = currentQuestion['option' + number];
+            });
 
+        //Getting rid of questions that have been used
+        availableQuestions.splice(questionIndex, 1);
+            console.log(availableQuestions);
+        acceptingAnswers = true;
 
-        }
-        var start = document.getElementById("startBtn");
-        startButton.addEventListener("click", startQuiz);
-         function startQuiz(){
-             start.style.display = "none";
-             renderQuestion();
-             TIMER = setInterval(counterRender,1000);
-             renderProgress();
-             renderCounter();
-             quiz.style.display = "block";
-         }
+        };
 
-         
+        //Clicking an answer choice
+        option.forEach(option => {
+            option.addEventListener('click', e => {
+                if (!acceptingAnswers) return;
+                acceptingAnswers = false;
+                var selectedOption = e.target;
+                var selectedAnswer = selectedOption.dataset["number"];
+
+                getNewQuestion();
+            });
+        });
+        
+        //Question choices
+         let questions = [
+             {
+                 question: "Sfaskjlgfa",
+                 option1: "fsaf",
+                 option2: "f",
+                 option3: "fsa",
+                 option4: "fas",
+                 answer: 1
+             },
+             {
+             question: "lolol",
+                 option1: "lmao",
+                 option2: "lmbo",
+                 option3: "lol",
+                 option4: "ha",
+                 answer: 2
+             }
+             
+             
+         ];
     </script>
 
   </body>
