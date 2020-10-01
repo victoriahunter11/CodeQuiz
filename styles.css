@@ -37,3 +37,21 @@ body {
 .hide{
     display: none;
 }
+
+.correct{
+    content: ' correct ! ';
+}
+
+//headsupdisplay
+
+#hud {
+    display:flex;
+    
+}
+
+.hud-prefix {
+text-align:left;
+}
+.hud-main-text {
+    text-align:right;
+}

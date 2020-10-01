@@ -16,7 +16,7 @@
     <body>
         <div class="container">
           <div id="questionContainer" class="hide">
-            <div id="question">W ?</div>
+            <div id="question"> </div>
             <div id="answerBtns" class="btn-grid">
                 <button class="option" data-number="1"> </button>
                 <button class="option" data-number="2"></button> 
@@ -24,6 +24,16 @@
                 <button class="option" data-number="4"> </button> 
                 <br>
                 <br>
+                </div>
+                <div id="hud">
+                    <div id="hud-item"><h5>score</h5>
+                        <p class="hud-prefix" id="score">
+                            0
+                        </p>
+                        <p class ="hud-main-text"> timer
+
+                        </p>
+                    </div>
                 </div>
           </div>
           <div class="controls">
@@ -33,9 +43,7 @@
       </body>
       </html>
 
-        <footer>
-            <p id="progress"> Question</p>
-        </footer>
+        
     </div>
     <br>
     <br>
@@ -43,13 +51,14 @@
     
     </html>
 
-
+    <!---Starting JavaScript-->
     <script type="text/javascript">
     //elements
     var startButton = document.getElementById('startBtn');
-    var questionContainerElement = document.getElementById('questionContainer')
+    var questionContainerElement = document.getElementById('questionContainer');
     var option = Array.from(document.getElementsByClassName('option'));
     console.log(option)
+    var scoreText = document.getElementById('score');
 
     let currentQuestion = {};
     let correctAnswers = true;
@@ -75,7 +84,7 @@
         };
         //Selecting a random question, and pulling one into the page
         function getNewQuestion() {
-            
+
             //if they reach the end of the available questions
             if (availableQuestions.length === 0 || questionCounter > availableQuestions) {
                 return window.location.assign("scores.html");
@@ -106,9 +115,33 @@
                 var selectedOption = e.target;
                 var selectedAnswer = selectedOption.dataset["number"];
 
+
+                var classToApply = 'incorrect';
+                if (selectedAnswer == currentQuestion.answer) {
+                    classToApply = 'correct';
+                };
+                if(classToApply === "correct") {
+                    incrementScore(CORRECT_BONUS);
+                }
+             //Applying a class to a correct or incorrect question
+                console.log(selectedAnswer == currentQuestion.answer);
+                
+               
+                selectedOption.parentElement.classList.add(classToApply);
+               
+                setTimeout(() => {
+                selectedOption.parentElement.classList.remove(classToApply);
                 getNewQuestion();
+                }, 1000);
+
             });
         });
+//Trying to get the scores
+        incrementScore = num => {
+            score += num;
+            scoreText.innerText = score;
+        };
+
         
         //Question choices
          let questions = [
@@ -131,6 +164,8 @@
              
              
          ];
+
+        var CORRECT_BONUS = 10;
     </script>
 
   </body>
