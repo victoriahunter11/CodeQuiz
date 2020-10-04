@@ -30,8 +30,9 @@
                         <p class="hud-prefix" id="score">
                             0
                         </p>
-                        <p class ="hud-main-text"> timer
-
+                        <h5>timer</h5>
+                        <p id="count">
+0
                         </p>
                     </div>
                 </div>
@@ -136,6 +137,20 @@
 
             });
         });
+
+        //making a timer
+        var count = 59;
+    var interval = setInterval(function(){
+  document.getElementById('count').innerHTML=count;
+  count--;
+  if (count === 0){
+    clearInterval(interval);
+    document.getElementById('count').innerHTML='Done';
+    // or...
+    alert("You're out of time!");
+  }
+}, 1000);
+
 //Trying to get the scores
         incrementScore = num => {
             score += num;
@@ -146,19 +161,19 @@
         //Question choices
          let questions = [
              {
-                 question: "Sfaskjlgfa",
-                 option1: "fsaf",
-                 option2: "f",
-                 option3: "fsa",
-                 option4: "fas",
+                 question: "What does CSS stand for?",
+                 option1: "Cascading Style Sheets",
+                 option2: "Crowded Style Sheets",
+                 option3: "Correctly Speaking Something",
+                 option4: "Correct Styling Specialty",
                  answer: 1
              },
              {
-             question: "lolol",
-                 option1: "lmao",
-                 option2: "lmbo",
-                 option3: "lol",
-                 option4: "ha",
+             question: "What does HTML stand for?",
+                 option1: "HeadingTextManyLanguages",
+                 option2: "HyperTextMarkupLanguage",
+                 option3: "HeadingsTextMarkupLanguage",
+                 option4: "HittingTextsManyLanguages",
                  answer: 2
              }
              

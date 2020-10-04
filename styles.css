@@ -42,7 +42,6 @@ body {
     content: ' correct ! ';
 }
 
-//headsupdisplay
 
 #hud {
     display:flex;
@@ -53,5 +52,13 @@ body {
 text-align:left;
 }
 .hud-main-text {
-    text-align:right;
+    text-align:left;
+}
+.finalScores {
+    text-align: center;
+}
+
+#highScoresList {
+    list-style: none;
+    padding-left:0;
 }
