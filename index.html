@@ -138,18 +138,22 @@
             });
         });
 
-        //making a timer
-        var count = 59;
+    //making a timer
+    var count = 59;
     var interval = setInterval(function(){
-  document.getElementById('count').innerHTML=count;
-  count--;
-  if (count === 0){
+    document.getElementById('count').innerHTML=count;
+    count--;
+    if (count === 0){
     clearInterval(interval);
-    document.getElementById('count').innerHTML='Done';
-    // or...
-    alert("You're out of time!");
-  }
+    sendMessage();
+    }
 }, 1000);
+
+function sendMessage() {
+    document.getElementById('count').innerHTML='Done';
+    localStorage.setItem("count", count);
+    window.location.href ="scores.html";
+}
 
 //Trying to get the scores
         incrementScore = num => {
