@@ -3,19 +3,18 @@
   <head>
     <meta charset="UTF-8">
     <title>Scores Page</title>
-
+    <script src="scores.js"></script>
+<link href="index.html">
+  <link rel="stylesheet" href="styles.css">
   </head>
   <body>
-    <script src="scores.js"></script>
-  <link rel="stylesheet" href="styles.css">
-  <script src="index.html"></script>
     <header>High Scores</header>
     <html>
     <header> 
     </header>
     <div class="container"> 
-      <div id="scores">
-          <h1 id="score"> 0 </h1>
+      <div id="finalScore">
+          <p class="hud-prefix" id="score"> 0 </p>
           <form>
               <input type="text" 
               name="username" 
@@ -24,19 +23,18 @@
           <button type="submit" 
           class="btn"
            id="saveScoreBtn" 
-           onclick="saveHighScore(event)"
+           onclick="saveHighScore(event)">
            
-           >
-            Save
-        </button>
-        <Br>
+           
+            Save </button>
+           <Br> 
             <br>
           <a class="btn" href="index.html"> Start game over</a>
             </form>
 
 
-      </div>
             </div>
-            <span id="answer1">>
+       </div>
+            
   </body>
 </html>

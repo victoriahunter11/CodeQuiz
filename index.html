@@ -88,13 +88,15 @@
 
             //if they reach the end of the available questions
             if (availableQuestions.length === 0 || questionCounter > availableQuestions) {
+                localStorage.setItem('mostRecentScore', score);
+                //end
                 return window.location.assign("scores.html");
             }
         
             questionCounter++;
             var questionIndex = Math.floor(Math.random() * availableQuestions.length);
             currentQuestion = availableQuestions[questionIndex];
-            question.innerText = currentQuestion.question;
+            question.textContent = currentQuestion.question;
 
             option.forEach(option => {
                 var number = option.dataset['number'];
@@ -148,12 +150,13 @@
     sendMessage();
     }
 }, 1000);
-
-function sendMessage() {
+//Takes you to the Score Page
+    function sendMessage() {
     document.getElementById('count').innerHTML='Done';
     localStorage.setItem("count", count);
     window.location.href ="scores.html";
-}
+    document.getElementById('score');
+    }
 
 //Trying to get the scores
         incrementScore = num => {
@@ -170,6 +173,14 @@ function sendMessage() {
                  option2: "Crowded Style Sheets",
                  option3: "Correctly Speaking Something",
                  option4: "Correct Styling Specialty",
+                 answer: 1
+             },
+             {
+                 question: "What does API stand for?",
+                 option1: "Application Programming Interface",
+                 option2: "Apps Parsing Interweb",
+                 option3: "Any Parsing Internally",
+                 option4: "Applications Personally Integrating",
                  answer: 1
              },
              {
