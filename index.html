@@ -15,6 +15,9 @@
     <h1>Coding Quiz</h1>
     <h4><a href = "scores.html">High Scores</a></h4>
     </header>
+
+
+    <!---Holds the grid, the questions, and buttons once game is started-->
     <body>
         <div class="container">
           <div id="questionContainer" class="hide">
@@ -25,6 +28,8 @@
                 <button class="option" data-number="3" > </button>
                 <button class="option" data-number="4"> </button> 
 
+                <!--- this holds the "wrong or right" by the verify, and
+               timer and score once game is started through the "hud"-->
                 <h2 id='verify'></h2>
                 <br>
                 <br>
@@ -41,6 +46,7 @@
                     </div>
                 </div>
           </div>
+          <!--begin Quiz-->
           <div class="controls">
             <button id="startBtn" class="startBtn">Start Quiz</button>
           </div>
@@ -202,7 +208,7 @@
              
              
          ];
-
+//Keeping track of score
         var CORRECT_BONUS = 10;
     </script>
 
