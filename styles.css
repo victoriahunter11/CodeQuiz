@@ -54,7 +54,7 @@ text-align:left;
     text-align:left;
 }
 .finalScores {
-    text-align: center;
+    text-align: center !important;
 }
 
 #highScoresList {
