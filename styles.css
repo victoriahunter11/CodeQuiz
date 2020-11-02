@@ -1,6 +1,5 @@
 body {
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 
-    'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-family:'Quicksand', sans-serif;
     padding: 0;
     margin: 0;
     background-color: #e5e7dc;
@@ -61,4 +60,10 @@ text-align:left;
 #highScoresList {
     list-style: none;
     padding-left:0;
+}
+
+h1 {
+    font-family:'Quicksand', sans-serif;
+    font-size: xx-large;
+    align-t:center;
 }
