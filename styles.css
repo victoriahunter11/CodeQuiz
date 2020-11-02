@@ -26,7 +26,7 @@ body {
 }
 
 .btn:hover {
-    color:darkgray;
+    background-color:#aed4fa;
 }
 
 .controls {
@@ -65,5 +65,4 @@ text-align:left;
 h1 {
     font-family:'Quicksand', sans-serif;
     font-size: xx-large;
-    align-t:center;
 }
